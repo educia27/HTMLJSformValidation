@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Rocket Simulation</title>
+    <style>
+      label { display: block; margin-bottom: 7px;}
+    </style>
+  </head>
+   <script>
+      window.addEventListener("load", function() {
+         let form = document.querySelector("form");
+         form.addEventListener("submit", function(event) {
+         let testName = document.querySelector("input[name=testName]");
+         let testDate = document.querySelector("input[name=testDate]");
+         let rockets= document.querySelector("input[name=rocketType]");
+         let boosters = document.querySelector("input[name=boosterCount]");
+         let button = document.querySelector('input[name="windRating"]:checked');
+         let checking = document.querySelector('input[name="checkBox"]:checked');
+          if (testName.value === "" || testDate.value === "" || rockets.value === "" || boosters.value === "" || button.value === null || checking.value === null) {
+            alert("All fields are required!");
+            event.preventDefault();
+         }
+         });
+      });
+   </script>
+  <body>
+   <form action="https://handlers.education.launchcode.org/request-parrot" method="POST">
+   <label>Test Name: <input type="text" name="testName"/></label>
+   <label>Test Date: <input type="date" name="testDate"></label>
+    <label>Rocket Type:
+   <!-- includes empty value "Select One" option -->
+   <select name="rocketType">
+      <option value="">Choose one: </option>
+      <option value="1">Lynk</option>
+      <option value="2">Brant</option>
+      <option value="3">Orion</option>
+      <option value="4">Terrier</option>
+   </select>
+   </label>
+   <label>Number of Rocket Boosters: <input type="number"
+  name="boosterCount" min="1" max="10"/></label>
+     Wind Rating: 
+   <label>No Wind: <input type="radio" name="windRating" value="10"/></label>
+   <label>Mild: <input type="radio" name="windRating" value="20"/></label>
+   <label>Strong: <input type="radio" name="windRating" value="30"/></label>
+   <label>Use production grade servers: <input type="checkBox" name="productionServers"/></label>
+   <button>Run Simulation</button> 
+</form>
+
+    
+
+    <p>WARNING: This ONLY works in <b>replit</b> if this "result" page is opened in its own window. Click the icon that shows a box with an arrow coming out of it.
+    </p>
+  </body>
+  
+</html>
